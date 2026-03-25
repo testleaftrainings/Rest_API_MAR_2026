@@ -1,0 +1,17 @@
+[
+	{
+		"shortDescription": "RESTAPIMAR20261",
+		"description": "Create new record using post method1",
+		"category": "hardware"
+	},
+	{
+		"shortDescription": "RESTAPIMAR20262",
+		"description": "Create new record using post method2",
+		"category": "software"
+	},
+	{
+		"shortDescription": "RESTAPIMAR20263",
+		"description": "Create new record using post method3",
+		"category": "inquiry"
+	}
+]

@@ -1,0 +1,298 @@
+{
+  "info": {
+    "_postman_id": "14568e17-e195-40c1-ae8d-051376b8b2af",
+    "name": "week2.day1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52582345"
+  },
+  "item": [
+    {
+      "name": "dataprovider",
+      "item": [
+        {
+          "name": "create_new_record_in_incident_table_with_request_body_using_data_variable",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code name has Created\", function () {\r",
+                  "    pm.response.to.have.status(\"Created\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate response format in JSON\", function () {\r",
+                  "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"json\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate short_description key value\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.result.short_description).to.eql(pm.iterationData.get('shortDescription'));\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate description key value\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.result.description).to.eql(pm.iterationData.get('description'));\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate category key value\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.result.category).to.eql(pm.iterationData.get('category'));\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "password",
+                  "value": "/eESj0uC3k+O",
+                  "type": "string"
+                },
+                {
+                  "key": "username",
+                  "value": "admin",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"short_description\": \"{{shortDescription}}\",\r\n    \"description\": \"{{description}}\",\r\n    \"category\": \"{{category}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{protocol}}://{{hostName}}/{{basePath}}/:table_name",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{hostName}}"
+              ],
+              "path": [
+                "{{basePath}}",
+                ":table_name"
+              ],
+              "variable": [
+                {
+                  "key": "table_name",
+                  "value": "{{tableName}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "retrieve_all_records_from_incident_table",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate response format in JSON\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"json\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "accept": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{userName}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{protocol}}://{{hostName}}/{{basePath}}/:table_name",
+          "protocol": "{{protocol}}",
+          "host": [
+            "{{hostName}}"
+          ],
+          "path": [
+            "{{basePath}}",
+            ":table_name"
+          ],
+          "variable": [
+            {
+              "key": "table_name",
+              "value": "{{tableName}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_a_record_from_incident_table",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate response format in JSON\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"json\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Your test name\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.result.sys_id).to.eql(pm.collectionVariables.get(\"sysId\"));\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "accept": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "{{userName}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{protocol}}://{{hostName}}/{{basePath}}/:table_name/:sysId",
+          "protocol": "{{protocol}}",
+          "host": [
+            "{{hostName}}"
+          ],
+          "path": [
+            "{{basePath}}",
+            ":table_name",
+            ":sysId"
+          ],
+          "variable": [
+            {
+              "key": "table_name",
+              "value": "{{tableName}}"
+            },
+            {
+              "key": "sysId",
+              "value": "{{sysId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "basePath",
+      "value": "api/now/table/"
+    },
+    {
+      "key": "tableName",
+      "value": "incident"
+    },
+    {
+      "key": "sysId",
+      "value": "1c832706732023002728660c4cf6a7b9"
+    }
+  ]
+}
