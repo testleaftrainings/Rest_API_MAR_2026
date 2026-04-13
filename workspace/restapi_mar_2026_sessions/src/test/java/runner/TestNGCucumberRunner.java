@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		          features = {"src/test/java/features/servicenow-incident.feature:21"},
+		          features = {"src/test/java/features/refactored-servicenow-incident.feature"},
 		          glue = {"step.defs"},
 		          dryRun = false,
 		          plugin = {

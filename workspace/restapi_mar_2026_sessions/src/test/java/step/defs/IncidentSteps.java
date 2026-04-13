@@ -3,6 +3,10 @@ package step.defs;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+import java.util.Map;
+
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -79,6 +83,34 @@ public class IncidentSteps {
 	@Then("response format json")
 	public void response_format_json() {
 		assertTrue(response.getContentType().contains("json"));
+	}
+	
+	@Then("response should be success")
+	public void response_should_be_success(DataTable dataTable) {	   
+	    List<Map<String, String>> asMaps = dataTable.asMaps();
+	    for (Map<String, String> map : asMaps) {
+			assertTrue(response.getStatusCode() == Integer.parseInt(map.get("statusCode")));
+			assertTrue(response.getStatusLine().contains(map.get("statusMessage")));
+			assertTrue(response.getContentType().contains(map.get("responseFormat").toLowerCase()));
+		}
+	}
+	
+	@Then("response body short_description key should have {string} value")
+	public void response_body_short_description_key_should_have_value(String shortDescription) {
+	    String actual = response.getBody().jsonPath().getString("result.short_description");
+	    assertEquals(actual, shortDescription);
+	}
+	
+	@Then("response body description key should have {string} value")
+	public void response_body_description_key_should_have_value(String description) {
+		String actual = response.getBody().jsonPath().getString("result.description");
+	    assertEquals(actual, description);
+	}
+	
+	@Then("response body category key should have {string} value")
+	public void response_body_category_key_should_have_value(String category) {
+		String actual = response.getBody().jsonPath().getString("result.category");
+	    assertEquals(actual, category);
 	}
 
 }
