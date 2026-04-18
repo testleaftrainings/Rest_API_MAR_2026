@@ -12,61 +12,61 @@ import io.restassured.specification.RequestSpecification;
 
 public class RestAssuredApiClient implements ApiClient {
 	
-	private RequestSpecification given(RequestSpecification requestSpecBuilder) {
+	private RequestSpecification given(RequestSpecification requestSpecification) {
 		return RestAssured.given()
-				          .spec(requestSpecBuilder)
+				          .spec(requestSpecification)
 				          .filters(new RequestLoggingFilter(), 
 				        		       new ErrorResponseLoggingFilter(),
 				        		       new AllureRestAssured());
 	}	
 
 	@Override
-	public Response get(RequestSpecification requestSpecBuilder, String endPoint) {		
-		return given(requestSpecBuilder).get(endPoint);
+	public Response get(RequestSpecification requestSpecification, String endPoint) {		
+		return given(requestSpecification).get(endPoint);
 	}
 
 	@Override
-	public Response post(RequestSpecification requestSpecBuilder, String endPoint, Object requestPayload) {
+	public Response post(RequestSpecification requestSpecification, String endPoint, Object requestPayload) {
 		if(requestPayload instanceof String) {
-			 return given(requestSpecBuilder).body((String) requestPayload).post(endPoint);
+			 return given(requestSpecification).body((String) requestPayload).post(endPoint);
 		 } else if(requestPayload instanceof File) {
-			 return given(requestSpecBuilder).body((File) requestPayload).post(endPoint);
+			 return given(requestSpecification).body((File) requestPayload).post(endPoint);
 		 } else if(requestPayload == null) {
-			 return given(requestSpecBuilder).post(endPoint);
+			 return given(requestSpecification).post(endPoint);
 		 } else {
-			 return given(requestSpecBuilder).body(requestPayload).post(endPoint);
+			 return given(requestSpecification).body(requestPayload).post(endPoint);
 		 }
 	}
 
 	@Override
-	public Response put(RequestSpecification requestSpecBuilder, String endPoint, Object requestPayload) {
+	public Response put(RequestSpecification requestSpecification, String endPoint, Object requestPayload) {
 		if(requestPayload instanceof String) {
-			 return given(requestSpecBuilder).body((String) requestPayload).put(endPoint);
+			 return given(requestSpecification).body((String) requestPayload).put(endPoint);
 		 } else if(requestPayload instanceof File) {
-			 return given(requestSpecBuilder).body((File) requestPayload).put(endPoint);
+			 return given(requestSpecification).body((File) requestPayload).put(endPoint);
 		 } else if(requestPayload == null) {
-			 return given(requestSpecBuilder).put(endPoint);
+			 return given(requestSpecification).put(endPoint);
 		 } else {
-			 return given(requestSpecBuilder).body(requestPayload).put(endPoint);
+			 return given(requestSpecification).body(requestPayload).put(endPoint);
 		 }
 	}
 
 	@Override
-	public Response patch(RequestSpecification requestSpecBuilder, String endPoint, Object requestPayload) {
+	public Response patch(RequestSpecification requestSpecification, String endPoint, Object requestPayload) {
 		if(requestPayload instanceof String) {
-			 return given(requestSpecBuilder).body((String) requestPayload).patch(endPoint);
+			 return given(requestSpecification).body((String) requestPayload).patch(endPoint);
 		 } else if(requestPayload instanceof File) {
-			 return given(requestSpecBuilder).body((File) requestPayload).patch(endPoint);
+			 return given(requestSpecification).body((File) requestPayload).patch(endPoint);
 		 } else if(requestPayload == null) {
-			 return given(requestSpecBuilder).patch(endPoint);
+			 return given(requestSpecification).patch(endPoint);
 		 } else {
-			 return given(requestSpecBuilder).body(requestPayload).patch(endPoint);
+			 return given(requestSpecification).body(requestPayload).patch(endPoint);
 		 }
 	}
 
 	@Override
-	public Response delete(RequestSpecification requestSpecBuilder, String endPoint) {
-		return given(requestSpecBuilder).delete(endPoint);
+	public Response delete(RequestSpecification requestSpecification, String endPoint) {
+		return given(requestSpecification).delete(endPoint);
 	}
 
 }

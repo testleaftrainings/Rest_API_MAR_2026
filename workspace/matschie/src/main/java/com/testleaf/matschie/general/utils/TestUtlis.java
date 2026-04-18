@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 public class TestUtlis {
 	
@@ -11,6 +12,14 @@ public class TestUtlis {
 	
 	public static void setTestData(String key, String value) {
 		testData.put(key, value);
+	}
+	
+	public static void setTestContext(String key, Object value) {
+		testData.put(key, value);
+	}
+	
+	public static RequestSpecification getRequestSpecification() {
+		return (RequestSpecification) testData.get("requestSpec");
 	}
 	
 	public static void setResponse(Response value) {

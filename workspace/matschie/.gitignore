@@ -16,4 +16,5 @@ test-evidences/
 reports/
 node_modules/
 package-lock.json
+cucumber-reports/
 cucumber-report/
