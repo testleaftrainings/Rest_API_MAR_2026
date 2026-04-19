@@ -6,9 +6,9 @@ import static com.testleaf.makaia.general.utils.PropertiesHandler.*;
 
 import com.testleaf.makaia.servicenow.api.som.IncidentSerivce;
 import com.testleaf.makaia.servicenow.ui.pages.LoginPage;
-import com.testleaf.makaia.testng.hooks.TestNGHooks;
+import com.testleaf.makaia.testng.hooks.ServicenowTestNGHooks;
 
-public class IncidentTests extends TestNGHooks {
+public class IncidentTests extends ServicenowTestNGHooks {
 	
     String number;
 	

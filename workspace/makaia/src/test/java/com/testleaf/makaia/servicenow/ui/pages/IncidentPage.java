@@ -5,10 +5,10 @@ import static com.testleaf.makaia.general.utils.PropertiesHandler.config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.testleaf.makaia.testng.hooks.TestNGHooks;
+import com.testleaf.makaia.testng.hooks.ServicenowTestNGHooks;
 import com.testleaf.makaia.ui.design.Locators;
 
-public class IncidentPage extends TestNGHooks {
+public class IncidentPage extends ServicenowTestNGHooks {
 	
 	public IncidentPage() {
 		loadUrl(config("makaia.aut.url")+"/incident.do");

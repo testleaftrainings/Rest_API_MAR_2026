@@ -2,10 +2,10 @@ package com.testleaf.makaia.servicenow.ui.pages;
 
 import static com.testleaf.makaia.general.utils.PropertiesHandler.config;
 
-import com.testleaf.makaia.testng.hooks.TestNGHooks;
+import com.testleaf.makaia.testng.hooks.ServicenowTestNGHooks;
 import com.testleaf.makaia.ui.design.Locators;
 
-public class LoginPage extends TestNGHooks {
+public class LoginPage extends ServicenowTestNGHooks {
 	
 	public LoginPage() {
 		loadUrl(config("makaia.aut.url"));

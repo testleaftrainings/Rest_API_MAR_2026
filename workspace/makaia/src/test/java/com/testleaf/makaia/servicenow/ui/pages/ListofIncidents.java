@@ -6,10 +6,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import com.testleaf.makaia.testng.hooks.TestNGHooks;
+import com.testleaf.makaia.testng.hooks.ServicenowTestNGHooks;
 import com.testleaf.makaia.ui.design.Locators;
 
-public class ListofIncidents extends TestNGHooks {
+public class ListofIncidents extends ServicenowTestNGHooks {
 	
 	public ListofIncidents() {
 		loadUrl(config("makaia.aut.url")+"/incident_list.do");

@@ -9,21 +9,33 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import com.testleaf.makaia.general.utils.AllureHandler;
+import com.testleaf.makaia.general.utils.FakerData;
+import static com.testleaf.makaia.general.utils.PropertiesHandler.*;
+import com.testleaf.makaia.general.utils.TestUtils;
 import com.testleaf.makaia.selenium.base.SeleniumBase;
+import com.testleaf.makaia.uibank.api.som.CreateTokenService;
 
 import io.qameta.allure.Allure;
 
-public class TestNGHooks extends SeleniumBase  {
+public class UiBankTestNGHooks extends SeleniumBase  {
 	
-	protected static String incidentNumber;
-	protected static String accountId;
-
+	@BeforeSuite
+	public void beforeSuite() {
+		TestUtils.setTestData("nickName", FakerData.generateRandomName());
+	}
+	
 	@BeforeMethod
 	public void beforeMethod(Method method) {
 		if (method.getName().contains("UI")) {
 			browserLaunch("chrome");
+		} else {
+			new CreateTokenService()
+		    .createToken(config("uibank.username"), secret("uibank.password"))
+		    .validateSuccessResponse()
+		    .extractToken();
 		}
 	}
 
