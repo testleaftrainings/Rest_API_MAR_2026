@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		          features = {"src/test/java/com/testleaf/matschie/servicenow/features/incident.feature:15"},
-		          glue = {"com.testleaf.matchie.servicenow.steps"},
+		          glue = {"com.testleaf.matschie.servicenow.steps"},
 		          dryRun = false,
 		          plugin = {
 		        		  "pretty",

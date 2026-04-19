@@ -1,4 +1,4 @@
-package com.testleaf.matchie.servicenow.steps;
+package com.testleaf.matschie.servicenow.steps;
 
 import java.util.List;
 import java.util.Map;

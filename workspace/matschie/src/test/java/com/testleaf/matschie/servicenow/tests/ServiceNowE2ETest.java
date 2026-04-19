@@ -1,7 +1,9 @@
 package com.testleaf.matschie.servicenow.tests;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
+import com.testleaf.matschie.general.utils.AllureHandler;
 import com.testleaf.matschie.servicenow.api.services.IncidentService;
 import com.testleaf.matschie.servicenow.serialization.pojos.UpdateIncident;
 
@@ -56,6 +58,11 @@ public class ServiceNowE2ETest {
 		    .validateResponeKeyValue("result.category", updateIncident.getCategory())
 		    .deleteExistingRecord()
 		    .validateDeleteResponse();
+	}
+	
+	@AfterClass
+	public void afterClass() {
+		AllureHandler.moveHistoryFolderToAllureResults();
 	}
 
 }

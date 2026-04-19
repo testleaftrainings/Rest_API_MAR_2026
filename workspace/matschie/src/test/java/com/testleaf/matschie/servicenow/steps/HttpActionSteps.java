@@ -1,4 +1,4 @@
-package com.testleaf.matchie.servicenow.steps;
+package com.testleaf.matschie.servicenow.steps;
 
 import com.testleaf.matschie.general.utils.TestUtlis;
 import com.testleaf.matschie.servicenow.api.services.IncidentService;
