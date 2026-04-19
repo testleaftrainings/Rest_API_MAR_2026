@@ -11,7 +11,7 @@ import com.testleaf.matschie.data.utils.JsonHandler;
 public class TestData {
 	
 	@DataProvider
-	public Iterator<Map<String, Object>> getTestData() {
+	public Iterator<Map<String, String>> getTestData() {
 		return JsonHandler.getData("create-data");
 	}
 	

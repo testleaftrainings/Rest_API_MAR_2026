@@ -15,11 +15,11 @@ import com.testleaf.matschie.constant.utls.FilePath;
 public class JsonHandler {
 	
 	private static Gson gson = new Gson();
-	private static List<Map<String, Object>> data;
+	private static List<Map<String, String>> data;
 	
-	public static Iterator<Map<String, Object>> getData(String fileName) {		
+	public static Iterator<Map<String, String>> getData(String fileName) {		
 		try (FileReader reader = new FileReader(FilePath.JSON.getFilePath()+fileName+".json")) {           
-            Type type = new TypeToken<List<Map<String, Object>>>(){}.getType();
+            Type type = new TypeToken<List<Map<String, String>>>(){}.getType();
             data = gson.fromJson(reader, type);            
         } catch (FileNotFoundException e) {			
 			e.printStackTrace();
