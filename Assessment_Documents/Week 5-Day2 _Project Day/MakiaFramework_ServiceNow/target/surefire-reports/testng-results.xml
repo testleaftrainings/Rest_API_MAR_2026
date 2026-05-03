@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="9610" started-at="2023-12-09T15:42:14 IST" finished-at="2023-12-09T15:42:24 IST">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Test" duration-ms="9610" started-at="2023-12-09T15:42:14 IST" finished-at="2023-12-09T15:42:24 IST">
+      <class name="com.framework.servicenow.tests.rest.TC001_CreateIncident">
+        <test-method status="PASS" signature="startReport()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="startReport" is-config="true" duration-ms="213" started-at="2023-12-09T15:42:14 IST" finished-at="2023-12-09T15:42:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method status="PASS" signature="setValues()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="setValues" is-config="true" duration-ms="1" started-at="2023-12-09T15:42:14 IST" finished-at="2023-12-09T15:42:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setValues -->
+        <test-method status="PASS" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="setUpClass" is-config="true" duration-ms="255" started-at="2023-12-09T15:42:14 IST" finished-at="2023-12-09T15:42:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@60cf62ad]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="startTestCase()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="startTestCase" is-config="true" duration-ms="11" started-at="2023-12-09T15:42:15 IST" finished-at="2023-12-09T15:42:15 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="beforeMethod" is-config="true" duration-ms="863" started-at="2023-12-09T15:42:15 IST" finished-at="2023-12-09T15:42:15 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="createIncident(java.io.File)[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="createIncident" duration-ms="8391" started-at="2023-12-09T15:42:15 IST" data-provider="fetchData" finished-at="2023-12-09T15:42:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\data\TC001.JSON]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createIncident -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="tearDownClass" is-config="true" duration-ms="5" started-at="2023-12-09T15:42:24 IST" finished-at="2023-12-09T15:42:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="endResult()[pri:0, instance:com.framework.servicenow.tests.rest.TC001_CreateIncident@10a035a0]" name="endResult" is-config="true" duration-ms="565" started-at="2023-12-09T15:42:24 IST" finished-at="2023-12-09T15:42:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endResult -->
+      </class> <!-- com.framework.servicenow.tests.rest.TC001_CreateIncident -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

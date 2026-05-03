@@ -1,0 +1,89 @@
+Agenda:
+=======
+
+Project day
+
+Agenda:
+
+Project Day
+=============
+
+1) How to perform API Testing/Exploratory Testing of API  without documentation
+
+Url:https://uibank.uipath.com/
+Username-FebApiuser
+Password-Eagle@123
+
+Intercept Browser and Extract the API:
+======================================
+
+1) Launch Url:https://uibank.uipath.com/
+2) Open the Dev tools --F12--Network
+3) Click on Fetch XHR (for filter)
+
+Analyze  API Calls:
+====================
+Documentation:
+==================
+Endpoint URL:
+https://uibank-api.azurewebsites.net/api/users/login
+Request Method:
+POST
+Status Code:
+200 OK
+Content-Type:
+application/json
+
+Request :
+=========
+{
+  "username": "FebApiuser",
+  "password": "Eagle@123"
+}
+
+Response:
+=========
+{
+    "id": "q9Andc7UR1PPQTeKARaZPyvhHlE9PO6SWdxjCehmvmdovXgeYZj8S8785DBCsrch",
+    "ttl": 1209600,
+    "created": "2024-06-16T09:43:28.996Z",
+    "userId": "64290731ba9f8a0047adacfc"
+}
+
+Accounts Creation API:
+=====================
+
+Request URL:
+https://uibank-api.azurewebsites.net/api/accounts
+Request Method:
+POST
+Status Code:
+200 OK
+Authorization:
+q9Andc7UR1PPQTeKARaZPyvhHlE9PO6SWdxjCehmvmdovXgeYZj8S8785DBCsrch
+
+
+Request:
+========
+{
+  "friendlyName": "TestMayAPIAccount",
+  "type": "savings",
+  "userId": "64290731ba9f8a0047adacfc",
+  "balance": 100,
+  "accountNumber": 3146745
+}
+
+Response:
+============
+{
+    "accountNumber": 3146745,
+    "friendlyName": "TestMayAPIAccount",
+    "type": "savings",
+    "balance": 100,
+    "date": "2024-06-16T09:49:17.679Z",
+    "id": "666eb51defb34948849935f9",
+    "userId": "64290731ba9f8a0047adacfc"
+}
+
+Import API:
+==========

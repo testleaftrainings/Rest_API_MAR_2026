@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-06-15T17:44:51 IST" name="Default suite" finished-at="2024-06-15T17:44:59 IST" duration-ms="7773">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-06-15T17:44:51 IST" name="Default test" finished-at="2024-06-15T17:44:59 IST" duration-ms="7773">
+      <class name="com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass">
+        <test-method is-config="true" signature="startReport()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:51 IST" name="startReport" finished-at="2024-06-15T17:44:51 IST" duration-ms="360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method is-config="true" signature="setValues()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:51 IST" name="setValues" finished-at="2024-06-15T17:44:51 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setValues -->
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:51 IST" name="setUpClass" finished-at="2024-06-15T17:44:52 IST" duration-ms="438" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7c901203]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="startTestCase()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:52 IST" name="startTestCase" finished-at="2024-06-15T17:44:52 IST" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:52 IST" name="beforeMethod" finished-at="2024-06-15T17:44:53 IST" duration-ms="906" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="createIncident(java.io.File)[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:53 IST" name="createIncident" data-provider="fetchData" finished-at="2024-06-15T17:44:59 IST" duration-ms="6238" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.\data\TC001.JSON]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createIncident -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:59 IST" name="tearDownClass" finished-at="2024-06-15T17:44:59 IST" duration-ms="95" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method is-config="true" signature="endResult()[pri:0, instance:com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass@97e93f1]" started-at="2024-06-15T17:44:59 IST" name="endResult" finished-at="2024-06-15T17:45:00 IST" duration-ms="612" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endResult -->
+      </class> <!-- com.framework.servicenow.tests.rest.TC004_CreateIncident_PropertiesClass -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

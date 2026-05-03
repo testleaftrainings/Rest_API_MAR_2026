@@ -40,7 +40,7 @@ public class PostMethodToCreateRecord {
 		
 		String sys_id = requestSpecification
 		.when()		
-		.body(requestBody)
+		.body(requestBody)		
 		.post("/{tableName}")
 		.then()
 		.log().all()
@@ -48,7 +48,7 @@ public class PostMethodToCreateRecord {
 		.statusCode(201)
 		.statusLine(Matchers.containsString("Created"))
 		// Validate the response format is JSON or NOT
-		.contentType(ContentType.JSON)
+		.contentType(ContentType.JSON)		
 		.body("result.short_description", Matchers.equalTo("RESTAPIAPR2026"))
 		.body("result", Matchers.hasKey("sys_id"))
 		.body("result.sys_id", Matchers.not(Matchers.emptyOrNullString()))

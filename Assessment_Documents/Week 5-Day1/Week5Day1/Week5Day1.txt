@@ -1,0 +1,83 @@
+Agenda:
+
+Makaia Framework:
+
+Instance URL: https://dev273722.service-now.com/
+Username: admin
+Password: pmU/PqyU2V7-
+
+Mak
+
+1)What is Makaia Framework
+Open source Test Automation Framework Developed by Testleaf
+Makaia --Australian Tree Kangaroo in a singapore zoo
+
+2)What is the purpose  of Makaia Framework
+UI+API Automation
+
+1) UI already exists ,But API developed future
+2) API alone is developed 
+3) Both API and UI
+
+3)Components in the Framework
+Build Tool --Maven
+UI Automation- Selenium
+API Automation -RestAssured
+Execution - TestNG
+Reporting --Extent Reports
+
+4)Dependencies in pom.xml
+
+Java faker -- Dynamic Data
+
+5)Folder structure
+
+a)Config 
+
+Key details to read the data from proeprties file
+@Key("password")
+String getPassword();
+password-key in the config_api.properties file
+
+
+b)data.dynamic
+
+Generating dynamic data using faker api
+
+c)restassured.api.base
+
+RestAssuredBase  --All the reusable methods
+PreAndTest-- TestNG Annotated methods
+
+6)OOPS concept in the framework
+
+Single Inhertance - RestAssuredbase extends PreAndTest
+Multilevel Inheritance -PreAndTest extends SeleniumBase
+Multiple Inheritance -SeleniumBase implements Browser,Elements
+
+Overloading :
+
+/issue
+/issue/issueid
+
+create issue--post()
+update issue--post(Url)
+
+
+7)How to write testcases/Testscript
+8)Execution and How to view the reports
+
+
+*Assignment*
+
+Do Chaining of request (CRUD) for ChangeRequest in Makaia Framework
+
+
+
+
+
+
+
+
+
+

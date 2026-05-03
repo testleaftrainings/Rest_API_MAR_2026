@@ -1,0 +1,11 @@
+Interview Questions that i came across recently:
+1. Tell me about your self —> Do not take more than 2mins (Just explain all your experience from each company and domain worked 10-20 seconds for each company)
+2. Have you tested APIs as a collections using Postman
+3. What are the checks you have in place for testing APIs ? 
+4. How will you configure your APIs to test them as a collection - using Env variable
+5. What re the recommendations you have
+ provided to your team when handingling the code versioning or coding standards in terms of Automation 
+6. What are the challenges you faced when building a fresh framework using TestNG
+7. If given a Task to work on REST Assured how confident are you to get it trained and work on it
+8. When running the APIs as a collections what are the issues / challenges you have faced
+9. Have you come across Schema in Postman in terms of validations ?

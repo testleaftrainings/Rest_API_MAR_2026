@@ -65,6 +65,28 @@
 			<version>${cucumber.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.wiremock</groupId>
+			<artifactId>wiremock</artifactId>
+			<version>4.0.0-beta.30</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.victools</groupId>
+			<artifactId>jsonschema-generator</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>6.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20251224</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -83,8 +105,8 @@
 				<version>1.2.2</version>
 				<configuration>
 					<sourceType>json</sourceType>
-					<sourceDirectory>${basedir}/src/main/resources/response</sourceDirectory>
-					<targetPackage>week3.day2.pojos</targetPackage>
+					<sourceDirectory>${basedir}/src/test/resources/sample-json</sourceDirectory>
+					<targetPackage>week6.day2.pojos</targetPackage>
 					<outputDirectory>${basedir}/src/main/java</outputDirectory>
 					<annotationStyle>gson</annotationStyle>
 					<includeHashcodeAndEquals>false</includeHashcodeAndEquals>

@@ -1,0 +1,162 @@
+Agenda:
+=======
+
+RA
+
+Introduction to RestAssured
+
+What ?--RestAssured--Library used for API Automation --Java
+
+Java--RestAssured
+C#-RestSharp
+python-pyrest
+
+Why RestAssured ?
+
+1) Only for Testing/Testers
+2) In Built Assertions (Hamcrest)
+3) Easy to Code
+given()--Precondition
+when()---Test Condition
+then() --Post Condition
+
+Unified Framework --UI(Selenium)+API(RestAssured)
+
+
+1)RestAssured --API Automation
+2)TestNG--Execution/Runner framework
+3)Maven --Build tool
+
+
+Project Setup:
+==============
+
+1) Open/Launch Eclipse
+2) File --New--Maven Project
+3) Click on the check box --create a Simple project
+4) Enter Group ID and Artifact ID --Click on finish
+
+Add Dependencies in Pom.xml:
+============================
+
+<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.4.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.5</version>
+    <scope>test</scope>
+</dependency>
+
+1) Create Incident
+2) Update Incident
+3) Delete Incident
+---How to extract the value of sys_id
+----How to get the value of status code
+
+---------Classroom Session------------------
+
+
+
+
+
+Instance URL: https://dev200784.service-now.com/
+Username: admin
+Password: k6C8-ajUWqY%
+
+{
+    "short_description": "Update using Postman",
+    "description": "Update Laptop charging problem"
+}
+
+
+*Classroom session*
+
+
+1) Create,Update ,Delete and Get all incidents
+2) Print the response in console
+
+
+1) Read Request from json File
+2) How to handle single and Multiple queryparameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CRUD Operations using RestAssured
