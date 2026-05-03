@@ -1,0 +1,651 @@
+{
+  "info": {
+    "_postman_id": "02d62147-b4b5-469f-a9f0-da4c573e398c",
+    "name": "week6.day1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52582345"
+  },
+  "item": [
+    {
+      "name": "wiremock-admin-api",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/__admin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "__admin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/welcome-message",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/welcome-message",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "welcome-message"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/welcome-message/json",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/welcome-message/json",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "welcome-message",
+            "json"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/create/user",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Karthikeyan\",\r\n    \"email\": \"kr@example.com\",\r\n    \"phoneNumber\": \"+91-9876543210\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/create/user",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "create",
+            "user"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create-oauth-access-token",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text",
+              "uuid": "117c6db2-6514-46bf-8628-b5d8e2fba2ca"
+            },
+            {
+              "key": "client_id",
+              "value": "3d85a62c04a8424f99c8427fb0672209",
+              "type": "text",
+              "uuid": "07373471-e55f-4df4-978a-a6396e66700d"
+            },
+            {
+              "key": "client_secret",
+              "value": "Z+(WhRz@x-1~?PrxGPNaa)1<.Dw,uo+[",
+              "type": "text",
+              "uuid": "e2a3b577-2ab0-48e9-8770-b853decd2a57"
+            },
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "text",
+              "uuid": "7b16ab3d-4b11-4c98-992d-8a172ed9b959"
+            },
+            {
+              "key": "password",
+              "value": "7d3iJH=K$jYf",
+              "type": "text",
+              "uuid": "e93cef0b-7e6e-4045-94b6-1e3819db75cf"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://dev373619.service-now.com/oauth_token.do",
+          "protocol": "https",
+          "host": [
+            "dev373619",
+            "service-now",
+            "com"
+          ],
+          "path": [
+            "oauth_token.do"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "retrieve_all_records_from_incident_table",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Status code name has OK\", function () {\r",
+              "    pm.response.to.have.status(\"OK\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Validate response format in JSON\", function () {\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).contains(\"json\");\r",
+              "});\r",
+              "\r",
+              "var jsonSchema = {\r",
+              "  \"$schema\" : \"http://json-schema.org/draft-07/schema#\",\r",
+              "  \"type\" : \"object\",\r",
+              "  \"properties\" : {\r",
+              "    \"result\" : {\r",
+              "      \"type\" : \"array\",\r",
+              "      \"items\" : {\r",
+              "        \"type\" : \"object\",\r",
+              "        \"properties\" : {\r",
+              "          \"active\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"activityDue\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"additionalAssigneeList\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"approval\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"approvalHistory\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"approvalSet\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"assignedTo\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"assignmentGroup\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"businessDuration\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"businessImpact\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"businessService\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"businessStc\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"calendarDuration\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"calendarStc\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"callerId\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"category\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"cause\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"childIncidents\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"closeCode\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"closeNotes\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"closedAt\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"closedBy\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"cmdbCi\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"comments\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"commentsAndWorkNotes\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"company\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"contactType\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"contract\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"correlationDisplay\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"correlationId\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"deliveryPlan\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"deliveryTask\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"description\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"dueDate\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"escalation\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"expectedStart\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"followUp\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"groupList\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"holdReason\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"impact\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"incidentState\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"knowledge\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"location\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"madeSla\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"notify\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"number\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"openedAt\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"openedBy\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"order\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"originId\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"originTable\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"parent\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"parentIncident\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"priority\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"reassignmentCount\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"reopenCount\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"reopenedBy\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"reopenedTime\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"resolvedAt\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"resolvedBy\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"routeReason\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"serviceOffering\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"severity\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"shortDescription\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"slaDue\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"state\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"subcategory\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysClassName\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysCreatedBy\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysCreatedOn\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysDomain\" : {\r",
+              "            \"type\" : \"object\",\r",
+              "            \"properties\" : {\r",
+              "              \"link\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              },\r",
+              "              \"value\" : {\r",
+              "                \"type\" : \"string\"\r",
+              "              }\r",
+              "            }\r",
+              "          },\r",
+              "          \"sysDomainPath\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysId\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysModCount\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysTags\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysUpdatedBy\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"sysUpdatedOn\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"taskEffectiveNumber\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"timeWorked\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"universalRequest\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"uponApproval\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"uponReject\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"urgency\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"userInput\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"watchList\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"workEnd\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"workNotes\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"workNotesList\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          },\r",
+              "          \"workStart\" : {\r",
+              "            \"type\" : \"string\"\r",
+              "          }\r",
+              "        }\r",
+              "      }\r",
+              "    }\r",
+              "  }\r",
+              "}\r",
+              "\r",
+              "pm.test(\"Validate json schema\", function () {\r",
+              "    pm.response.to.have.jsonSchema(jsonSchema);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "accept": true
+        }
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "2ip3DoeqaHt_gY6GDjLeU9Wj17rDrdJLSHyd_d3j-Btf5noeNl9XJ-aNE5FD4X9K_X3DGMmJrRfdVHFRFxvp-g",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{protocol}}://{{hostName}}/{{basePath}}/:table_name",
+          "protocol": "{{protocol}}",
+          "host": [
+            "{{hostName}}"
+          ],
+          "path": [
+            "{{basePath}}",
+            ":table_name"
+          ],
+          "variable": [
+            {
+              "key": "table_name",
+              "value": "{{tableName}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "basePath",
+      "value": ""
+    },
+    {
+      "key": "tableName",
+      "value": ""
+    },
+    {
+      "key": "sysId",
+      "value": ""
+    }
+  ]
+}
